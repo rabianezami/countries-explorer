@@ -1,17 +1,23 @@
 
 import { useState } from 'react'
 import Header from './components/Header'
-import SearchBar from './components/SearchBar'
+import FiltersBar from './components/FiltersBar'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [region, setRegion] = useState("all");
   
   return (
-    <>
+    <div className="bg-indigo-50">
      <Header />
-     <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      
-    </>
+     <FiltersBar 
+       searchTerm={searchTerm}
+       setSearchTerm={setSearchTerm}
+       region={region}
+       setRegion={setRegion}
+     />
+   
+    </div>
   )
 }
 
