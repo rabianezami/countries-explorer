@@ -4,8 +4,8 @@ export default function SearchBar({ searchTerm, setSearchTerm }) {
   const hasText = searchTerm?.trim().length > 0
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="relative flex items-center rounded-xl bg-white/10 border border-gray-200 hover:border-gray-300 px-3 py-2 mt-5">
+    <div className="w-full md:max-w-md">
+      <div className="relative flex items-center rounded-xl bg-white border border-gray-200 hover:border-gray-300 p-1">
 
         <Search
           size={18}
