@@ -5,10 +5,10 @@ export default function CountryCardContent({ flag, name, region, population }) {
                 <img
                     src={flag}
                     alt={name}
-                    className="w-28 h-16 object-cover mx-auto mb-2 rounded"
+                    className="w-50 h-30 object-cover mx-auto mb-2 rounded"
                 />
             </div>
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left mb-4">
                 <h2 className="font-bold text-lg mb-1">{name}</h2>
                 <p className="text-gray-600 text-sm">Region: {region}</p>
                 <p className="text-gray-600 text-sm">
