@@ -1,4 +1,4 @@
-const regions = ["Afghanistn", "Americas", "Iran", "Pakistan", "Europe", "Oceania"]
+const regions = [ "Americas", "Europe", "Oceania", "Asia", "Africa"]
 
 export default function RegionFilter({ value, onChange }) {
     return (
