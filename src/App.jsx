@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import FiltersBar from './components/FiltersBar'
 import CountryGrid from './components/countryCard/CountryGrid'
+import CountrySkeletonGrid from './components/skeleton/CountrySkeletonGrid'
 
 
 function App() {
@@ -52,9 +53,7 @@ function App() {
         setRegion={setRegion}
       />
 
-      {loading && (
-        <p className="text-center mt-8 text-gray-500">Loading countries...</p>
-      )}
+      {loading && <CountrySkeletonGrid />}
 
       {error && (
         <div className="text-center mt-8 text-red-500">
