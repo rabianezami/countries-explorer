@@ -13,6 +13,7 @@ function App() {
   const [countries, setCountries] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [refetchCount, setRefetchCount] = useState(0)
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -24,6 +25,8 @@ function App() {
 
         if (searchTerm.trim().length >= 2) {
           url = `https://restcountries.com/v2/name/${encodeURIComponent(searchTerm.trim())}?fields=name,flags,region,population,alpha3Code`
+        } else if (region !== "all") {
+          url = `https://restcountries.com/v3.1/region/{region}`
         }
 
         const res = await fetch(url)
@@ -34,13 +37,14 @@ function App() {
       } catch (err) {
         console.error(err)
         setError(err.message || "Something went wrong")
+        setCountries([])
       } finally {
         setLoading(false)
       }
     }
 
     fetchCountries()
-  }, [searchTerm, region])
+  }, [searchTerm, region, refetchCount])
 
 
   return (
@@ -55,21 +59,21 @@ function App() {
 
       {loading && <CountrySkeletonGrid />}
 
-      {error && (
+      {!loading && error && (
         <div className="text-center mt-8 text-red-500">
           <p>Error: {error}</p>
           <button
             className="mt-2 px-4 py-2 bg-red-100 text-red-700 rounded hover:bg-red-200"
-            onClick={() => {
-              setSearchTerm(searchTerm)
-            }}
+            onClick={() => setRefetchCount(prev => prev + 1)}
           >
             Retry
           </button>
         </div>
       )}
 
-      <CountryGrid countries={countries} />
+      {!loading && !error && (
+        <CountryGrid countries={countries} />
+      )}
 
       {!loading && !error && countries.length === 0 && (
         <p className="text-center mt-8 text-gray-500">No countries found</p>
