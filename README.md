@@ -10,7 +10,7 @@ This is a small app to explore countries. You can:
 - Everything loads dynamically from the internet
 
 ## API Used
-- All countries: `https://restcountries.com/v3.1/all`
+- All countries: `[https://restcountries.com/v3.1/all](https://restcountries.com/v2/all?fields=name,flags,region,population,alpha3Code)`
 - Search by name: `https://restcountries.com/v3.1/name/{name}`
 - Filter by region: `https://restcountries.com/v3.1/region/{region}`
 
