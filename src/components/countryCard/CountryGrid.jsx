@@ -11,8 +11,8 @@ export default function CountryGrid({ countries }) {
                     <CountryCardContent
                         flag={c.flags?.png}
                         name={c.name?.common}
-                        region={c.region}
-                        population={c.population}
+                        region={c.region || "N/A"}
+                        population={c.population?.toLocaleString() || "N/A"}
                     />
                 </CountryCard>
             ))}
