@@ -1,5 +1,7 @@
 # Countries Explorer
 
+![countries](https://github.com/user-attachments/assets/b14d391a-b4b1-4c88-a29f-994796950c92)
+
 This is a small app to explore countries. You can:
 
 - Search for a country by name
@@ -15,8 +17,10 @@ This is a small app to explore countries. You can:
 ## How to run
 1. Clone repo
 2. `npm install`
-3. `npm start`
+3. `npm run dev`
 4. Open `http://localhost:5173`
+
+
 
 
 
